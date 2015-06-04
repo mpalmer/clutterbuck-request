@@ -1,16 +1,15 @@
-This is a template git repo suitable for building a Womble-compliant gem.
-If you're reading this text in a released gem, or a git repo that isn't
-`gemplate`, someone needs to write some documentation.
+This provides a set of helpers to make processing Rack requests easier.
+
 
 # Installation
 
 It's a gem:
 
-    gem install gemplate
+    gem install clutterbuck-request
 
 There's also the wonders of [the Gemfile](http://bundler.io):
 
-    gem 'gemplate'
+    gem 'clutterbuck-request'
 
 If you're the sturdy type that likes to run from git:
 
@@ -22,18 +21,41 @@ presumably know what to do already.
 
 # Usage
 
-Examples go here.
+Load the code:
 
-Hopefully that should all be fairly self-explanatory.  If not, well, there's
-more detailed documentation in the auto-generated YARD docs.
+    require 'clutterbuck-request'
+
+Include the module, and provide access to the Rack environment:
+
+    class MyExampleApp
+      include Clutterbuck::Request
+
+      def env
+        @env
+      end
+    end
+
+Then you can use any of the methods in the {Clutterbuck::Request} module to
+do your worst.
+
+## The Rack environment
+
+Since {Clutterbuck::Request} needs access to the Rack request environment in
+order to do its thing, you'll need to define an instance method called
+`env`, which returns the request environment.  If you're using
+`clutterbuck-router`, this is already done for you, otherwise however you're
+calling the app will need to be adjusted to capture the environment
+somewhere (you're almost certainly already doing this) and provide it in the
+`env` method.
 
 
 # Contributing
 
 Bug reports should be sent to the [Github issue
-tracker](https://github.com/mpalmer/gemplate/issues), or
-[e-mailed](mailto:theshed+gemplate@hezmatt.org).  Patches can be sent as a
-Github pull request, or [e-mailed](mailto:theshed+gemplate@hezmatt.org).
+tracker](https://github.com/mpalmer/clutterbuck-request/issues), or
+[e-mailed](mailto:theshed+clutterbuck@hezmatt.org).  Patches can be sent as
+a Github pull request, or
+[e-mailed](mailto:theshed+clutterbuck@hezmatt.org).
 
 
 # Licence
