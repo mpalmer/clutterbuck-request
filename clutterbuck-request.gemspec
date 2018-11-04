@@ -20,10 +20,11 @@ Gem::Specification.new do |s|
 
 	s.add_runtime_dependency "clutterbuck-core", "~> 0.0"
 	s.add_runtime_dependency "oj", "~> 2.0"
-	s.add_runtime_dependency "rack", "~> 1.5"
+	s.add_runtime_dependency "rack", "~> 2.0"
 
 	s.add_development_dependency 'bundler'
 	s.add_development_dependency 'github-release'
+	s.add_development_dependency 'git-version-bump'
 	s.add_development_dependency 'guard-spork'
 	s.add_development_dependency 'guard-rspec'
 	s.add_development_dependency 'rake', '~> 10.4', '>= 10.4.2'
